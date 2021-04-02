@@ -6,10 +6,11 @@ const app=express();
 
 app.use(express.static("public"));
 
+
 app.get("/",function(req, res){
   res.sendFile(__dirname +"/home.html");
 });
 
-app.listen(process.env.PORT, function (){
-  console.log("server on 3000 port");
+app.listen(process.env.PORT || 3000, function (){
+  console.log("server on 3000 port and also online");
 });

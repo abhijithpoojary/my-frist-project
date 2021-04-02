@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>W3.CSS Template</title>
+<title>Abhijith poojary</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -63,9 +63,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
   <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
     <h2 class="w3-text-light-grey">Abhijith BR</h2>
     <hr style="width:200px" class="w3-opacity">
-    <p>Some text about me. Some text about me. I am lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-      ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur
-      adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    <p>Hello everyone, i'm abhijith br and this is first project. let us introduce myself, am a person who is positive about every aspect of life. There are many things I like to do, to see, and to experience. I like to read, I like to write; I like to think, I like to dream; I like to talk, I like to listen. I like to see the sunrise in the morning, I like to see the moonlight at night; I like to feel the music flowing on my face, I like to smell the wind coming from the ocean. I like to look at the clouds in the sky with a blank mind, I like to do thought experiment when I cannot sleep in the middle of the night. I like flowers in spring, rain in summer, leaves in autumn, and snow in winter. I like to sleep late, I like to get up late; I like to be alone, I like to be surrounded by people. I like country’s peace, I like metropolis’ noise. I like delicious food and comfortable shoes; I like good books and romantic movies. I like the land and the nature, I like people. And, I like to laugh.
     </p>
     <h3 class="w3-padding-16 w3-text-light-grey">My Skills</h3>
     <p class="w3-wide">Photography</p>
@@ -100,9 +98,42 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
       </div>
     </div>
 
-    <button class="w3-button w3-light-grey w3-padding-large w3-section">
-      <i class="fa fa-download"></i> Download Resume
+    <button>
+    <i class="fa fa-download"></i>
+    <input type="button" class="w3-button w3-light-grey" value="Download Resume" onclick="DownloadFile('abhijith br resume.pdf')" />
     </button>
+
+   <script type="text/javascript">
+       function DownloadFile(fileName) {
+           //Set the File URL.
+           var url = "Files/" + fileName;
+
+           //Create XMLHTTP Request.
+           var req = new XMLHttpRequest();
+           req.open("GET", url, true);
+           req.responseType = "blob";
+           req.onload = function () {
+               //Convert the Byte Data to BLOB object.
+               var blob = new Blob([req.response], { type: "application/octetstream" });
+
+               //Check the Browser type and download the File.
+               var isIE = false || !!document.documentMode;
+               if (isIE) {
+                   window.navigator.msSaveBlob(blob, fileName);
+               } else {
+                   var url = window.URL || window.webkitURL;
+                   link = url.createObjectURL(blob);
+                   var a = document.createElement("a");
+                   a.setAttribute("download", fileName);
+                   a.setAttribute("href", link);
+                   document.body.appendChild(a);
+                   a.click();
+                   document.body.removeChild(a);
+               }
+           };
+           req.send();
+       };
+   </script>
 
     <!-- Grid for pricing tables -->
     <h3 class="w3-padding-16 w3-text-light-grey">About me</h3>
@@ -176,15 +207,9 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
       <p><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"> </i> Email: abhijithpoojari1122@gmail.com</p>
     </div><br>
     <p>Let's get in touch. Send me a message:</p>
-
-    <form action="/action_page.php" target="_blank">
-      <p><input class="w3-input w3-padding-16" type="text" placeholder="Name" required name="Name"></p>
-      <p><input class="w3-input w3-padding-16" type="text" placeholder="Email" required name="Email"></p>
-      <p><input class="w3-input w3-padding-16" type="text" placeholder="Subject" required name="Subject"></p>
-      <p><input class="w3-input w3-padding-16" type="text" placeholder="Message" required name="Message"></p>
-      <p>
-        <button class="w3-button w3-light-grey w3-padding-large" type="submit">
-          <i class="fa fa-paper-plane"></i> SEND MESSAGE
+    <form action="mailto:abhijithpoojari1122@gmail.com"  method="post" enctype="text/plain" target="_blank">
+        <button class="w3-button w3-light-grey w3-padding-large" type="submit" value="send">
+          <i class="fa fa-paper-plane"></i> SEND MAIL
         </button>
       </p>
     </form>
