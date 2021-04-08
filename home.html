@@ -63,7 +63,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
   <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
     <h2 class="w3-text-light-grey">Abhijith BR</h2>
     <hr style="width:200px" class="w3-opacity">
-    <p>Hello everyone, i'm abhijith br and this is first project. let us introduce myself, am a person who is positive about every aspect of life. There are many things I like to do, to see, and to experience. I like to read, I like to write; I like to think, I like to dream; I like to talk, I like to listen. I like to see the sunrise in the morning, I like to see the moonlight at night; I like to feel the music flowing on my face, I like to smell the wind coming from the ocean. I like to look at the clouds in the sky with a blank mind, I like to do thought experiment when I cannot sleep in the middle of the night. I like flowers in spring, rain in summer, leaves in autumn, and snow in winter. I like to sleep late, I like to get up late; I like to be alone, I like to be surrounded by people. I like country’s peace, I like metropolis’ noise. I like delicious food and comfortable shoes; I like good books and romantic movies. I like the land and the nature, I like people. And, I like to laugh.
+    <p>Hello everyone, i'm abhijith br and this is my first project. let us introduce myself, am a person who is positive about every aspect of life. There are many things I like to do, to see, and to experience. I like to read, I like to write; I like to think, I like to dream; I like to talk, I like to listen. I like to see the sunrise in the morning, I like to see the moonlight at night; I like to feel the music flowing on my face, I like to smell the wind coming from the ocean. I like to look at the clouds in the sky with a blank mind, I like to do thought experiment when I cannot sleep in the middle of the night. I like flowers in spring, rain in summer, leaves in autumn, and snow in winter. I like to sleep late, I like to get up late; I like to be alone, I like to be surrounded by people. I like country’s peace, I like metropolis’ noise. I like delicious food and comfortable shoes; I like good books and romantic movies. I like the land and the nature, I like people. And, I like to laugh.
     </p>
     <h3 class="w3-padding-16 w3-text-light-grey">My Skills</h3>
     <p class="w3-wide">Photography</p>
@@ -98,42 +98,12 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
       </div>
     </div>
 
-    <button>
+
+    <button class="w3-button w3-light-grey w3-padding-large w3-section">
     <i class="fa fa-download"></i>
-    <input type="button" class="w3-button w3-light-grey" value="Download Resume" onclick="DownloadFile('abhijith br resume.pdf')" />
+    <a href="https://drive.google.com/file/d/1kGUKvKqQYIlfiFDqyRYlcq5PJwaiILYX/view?usp=sharing" download="My Resume">Download Resume</a>
     </button>
 
-   <script type="text/javascript">
-       function DownloadFile(fileName) {
-           //Set the File URL.
-           var url = "Files/" + fileName;
-
-           //Create XMLHTTP Request.
-           var req = new XMLHttpRequest();
-           req.open("GET", url, true);
-           req.responseType = "blob";
-           req.onload = function () {
-               //Convert the Byte Data to BLOB object.
-               var blob = new Blob([req.response], { type: "application/octetstream" });
-
-               //Check the Browser type and download the File.
-               var isIE = false || !!document.documentMode;
-               if (isIE) {
-                   window.navigator.msSaveBlob(blob, fileName);
-               } else {
-                   var url = window.URL || window.webkitURL;
-                   link = url.createObjectURL(blob);
-                   var a = document.createElement("a");
-                   a.setAttribute("download", fileName);
-                   a.setAttribute("href", link);
-                   document.body.appendChild(a);
-                   a.click();
-                   document.body.removeChild(a);
-               }
-           };
-           req.send();
-       };
-   </script>
 
     <!-- Grid for pricing tables -->
     <h3 class="w3-padding-16 w3-text-light-grey">About me</h3>
@@ -157,7 +127,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
           <li class="w3-dark-grey w3-xlarge w3-padding-32">Full stack developer</li>
           <li class="w3-padding-16">Fresher</li>
           <li class="w3-padding-16">Front end: CSS, HTML, JAVAscript, Bootstarp</li>
-          <li class="w3-padding-16">Server: node.js</li>
+          <li class="w3-padding-16">Server: node.js, Express</li>
           <li class="w3-padding-16">Database: MongoDB</li>
 
           <li class="w3-light-grey w3-padding-24">
@@ -230,6 +200,7 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 
 <!-- END PAGE CONTENT -->
 </div>
+
 
 </body>
 </html>
