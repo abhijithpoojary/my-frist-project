@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<title>Abhijith poojary</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+.w3-row-padding img {margin-bottom: 12px}
+/* Set the width of the sidebar to 120px */
+.w3-sidebar {width: 120px;background: #222;}
+/* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+#main {margin-left: 120px}
+/* Remove margins from "page content" on small screens */
+@media only screen and (max-width: 600px) {#main {margin-left: 0}}
+</style>
+<body class="w3-black">
+
+<!-- Icon Bar (Sidebar - hidden on small screens) -->
+<nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
+  <!-- Avatar image in top left corner -->
+  <img src="/images/abi1.jpg" style="width:100%">
+  <a href="#" class="w3-bar-item w3-button w3-padding-large w3-black">
+    <i class="fa fa-comment-o w3-xxlarge"></i>
+    <p>WHAT'S YOUR OPINION</p>
+  </a>
+ </nav>
+
+ <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
+<h2 class="w3-text-light-grey">WRITE YOUR COMMENT HERE</h2>
+   <hr style="width:980px" class="w3-opacity">
+   <form action="/thankyou.html" method="get">
+     <p><input class="w3-input w3-padding-16" type="text" id="name" placeholder="Name" required name="Name"></p>
+     <p><input class="w3-input w3-padding-16" type="email" id="email" placeholder="Email" required name="Email"></p>
+     <p><input class="w3-input w3-padding-16" type="hidden" id="subject" value="comments" required name="Subject"></p>
+     <textarea id=message rows="6" cols="120" placeholder="comments here"></textarea>
+     <p>
+       <button id=btn class="w3-button w3-light-grey w3-padding-large" type="submit">
+         <i class="fa fa-comments w3-large"></i> SUBMIT
+       </button>
+
+
+     </p>
+</form>
+
+   </div>
+
+   <!--  -->
+
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+       <!-- Here is a script where we will be collecting data from the form  -->
+       <script>
+           $('form').on('submit', (e) => {
+               // e.preventDefault();
+
+               const name = $('#name').val().trim();
+               const email = $('#email').val().trim();
+               const message = $('#message').val().trim();
+
+               const data = {
+                   name,
+                   email,
+                   message
+               };
+
+               $.post('/email', data, function() {
+                   console.log('Server recieved our data');
+
+
+               });
+           });
+           // document.getElementById('#form-data').reset();
+       </script>
+
+</body>
+</html>

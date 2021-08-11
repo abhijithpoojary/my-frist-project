@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 <style>
 body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 .w3-row-padding img {margin-bottom: 12px}
@@ -15,6 +16,14 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 #main {margin-left: 120px}
 /* Remove margins from "page content" on small screens */
 @media only screen and (max-width: 600px) {#main {margin-left: 0}}
+
+a:link {
+  color: black;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+
 </style>
 <body class="w3-black">
 
@@ -117,7 +126,9 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
           <li class="w3-padding-16">Edits: Adobe lightroom, Snapseed</li>
 
           <li class="w3-light-grey w3-padding-24">
+             <form method="POST" action="comment.html">
             <button class="w3-button w3-white w3-padding-large w3-hover-black">comment</button>
+          </form>
           </li>
         </ul>
       </div>
@@ -131,7 +142,9 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
           <li class="w3-padding-16">Database: MongoDB</li>
 
           <li class="w3-light-grey w3-padding-24">
+            <form method="POST" action="comment.html">
             <button class="w3-button w3-white w3-padding-large w3-hover-black">comment</button>
+             </form>
           </li>
         </ul>
       </div>
@@ -176,31 +189,61 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
       <p><i class="fa fa-phone fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Phone: +91 9482321480</p>
       <p><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"> </i> Email: abhijithpoojari1122@gmail.com</p>
     </div><br>
-    <p>Let's get in touch. Send me a message:</p>
-    <form action="mailto:abhijithpoojari1122@gmail.com"  method="post" enctype="text/plain" target="_blank">
-        <button class="w3-button w3-light-grey w3-padding-large" type="submit" value="send">
-          <i class="fa fa-paper-plane"></i> SEND MAIL
+    <form>
+      <p><input class="w3-input w3-padding-16" type="text" id="name" placeholder="Name" required name="Name"></p>
+      <p><input class="w3-input w3-padding-16" type="email" id="email"placeholder="Email" required name="Email"></p>
+      <p><input class="w3-input w3-padding-16" type="text" id="subject" placeholder="Subject" required name="Subject"></p>
+      <p><input class="w3-input w3-padding-16" type="text" id="message" placeholder="Message" required name="Message"></p>
+      <p>
+        <button class="w3-button w3-light-grey w3-padding-large" type="submit">
+          <i class="fa fa-paper-plane"></i> SEND MESSAGE
         </button>
       </p>
-    </form>
+</form>
   <!-- End Contact Section -->
   </div>
 
     <!-- Footer -->
   <footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
-    <i class="fa fa-facebook-official w3-hover-opacity"></i>
-    <i class="fa fa-instagram w3-hover-opacity"></i>
-    <i class="fa fa-snapchat w3-hover-opacity"></i>
-    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-    <i class="fa fa-twitter w3-hover-opacity"></i>
-    <i class="fa fa-linkedin w3-hover-opacity"></i>
-    <p class="w3-medium">Powered by <a  target="_blank" class="w3-hover-text-green">abi jit</a></p>
+    <p class="w3-xxlarge"> <a href="https://www.instagram.com/abi_jit_poojary/" style="color: white; font-size:20px;" target="_blank" class="fa fa-instagram w3-hover-opacity"> instagram</a></p>
+    <p class="w3-xxlarge"> <a href="https://www.facebook.com/abhijith.poojari.92/" style="color: white; font-size:20px;" target="_blank" class="fa fa-facebook-official w3-hover-opacity"> facebook</a></p>
+    <p class="w3-xxlarge"> <a href="https://www.instagram.com/abi_jit_poojary/" style="color: white;font-size:20px;" target="_blank" class="fa fa-snapchat w3-hover-opacity"> snapchat</a></p>
+    <p class="w3-medium"> <a  target="_blank" class="w3-hover-text-green">Abhijith poojary</a></p>
   <!-- End footer -->
   </footer>
 
 <!-- END PAGE CONTENT -->
 </div>
 
+<!--  -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+    <!-- Here is a script where we will be collecting data from the form  -->
+    <script>
+        $('form').on('submit', (e) => {
+            // e.preventDefault();
+
+            const name = $('#name').val().trim();
+            const email = $('#email').val().trim();
+            const subject = $('#subject').val().trim();
+            const message = $('#message').val().trim();
+
+            const data = {
+                name,
+                email,
+                subject,
+                message
+            };
+
+            $.post('/email', data, function() {
+                console.log('Server recieved our data');
+
+
+            });
+        });
+        // document.getElementById('#form-data').reset();
+    </script>
 
 </body>
 </html>
