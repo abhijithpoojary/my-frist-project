@@ -14,8 +14,11 @@ h1{
   font-family: sans-serif;
 }
 
-
-
+h2{
+  color: white;
+  font-size: 2rem;
+  font-family: sans-serif;
+}
 
 span{
   opacity: 0;
